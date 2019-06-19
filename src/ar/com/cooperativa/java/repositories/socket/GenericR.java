@@ -40,9 +40,6 @@ public class GenericR<E> implements I_GenericR<E>{
             //in.readObject();
         }catch(Exception ee) { ee.printStackTrace(); }
     }
-    @Override public void update(E e) {
-        
-    }
     @Override public List<E> getAll() {
         List<E>lista=new ArrayList();
        try(
@@ -53,4 +50,16 @@ public class GenericR<E> implements I_GenericR<E>{
         }catch(Exception ee) { ee.printStackTrace(); }
        return lista;
     }
+    @Override public void update(E e) {
+        try(
+            Socket so=new Socket(host,ports.get(3));
+            ObjectOutputStream out=new ObjectOutputStream(so.getOutputStream());
+            ObjectInputStream in=new ObjectInputStream(so.getInputStream());
+        ){
+            out.writeObject(e);
+            //Object obj=in.readObject();
+        }catch(Exception ee) { ee.printStackTrace(); }
+        
+    }
+
 }

@@ -1,15 +1,16 @@
-package ar.com.cooperativa.java.repositories.jpa;
-import ar.com.cooperativa.java.entities.Cuenta;
+package ar.com.cooperativa.java.repositories.socket;
 import ar.com.cooperativa.java.entities.Cliente;
+import ar.com.cooperativa.java.entities.Cuenta;
+import ar.com.cooperativa.java.enumerados.Lugares;
 import ar.com.cooperativa.java.repositories.interfaces.I_CuentaR;
-import ar.com.cooperativa.java.repositories.interfaces.I_GenericR;
 import java.sql.Connection;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.persistence.EntityManager;
-public class CuentaR implements I_CuentaR{
-    private I_GenericR<Cuenta> gr;
-    public CuentaR(EntityManager em){ gr=new GenericR(em,new Cuenta());    }
+public class CuentaR implements I_CuentaR {
+    private GenericR<Cuenta>gr;
+    public CuentaR(String host,List<Integer>ports){ 
+        gr=new GenericR(host,ports,new Cuenta());  
+    }
     @Override public void save(Cuenta cuenta)   { gr.save(cuenta);          }
     @Override public void remove(Cuenta cuenta) { gr.remove(cuenta);        }
     @Override public void update(Cuenta cuenta) { gr.update(cuenta);        }
@@ -40,6 +41,5 @@ public class CuentaR implements I_CuentaR{
                 .stream()
                 .filter(a->a.getActiva()==activa)
                 .collect(Collectors.toList());
-    }
-    
+    }   
 }

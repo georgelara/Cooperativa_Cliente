@@ -22,8 +22,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import ar.com.cooperativa.java.enumerados.Tipos;
-import ar.com.cooperativa.java.repositories.jpa.ClienteR;
-import ar.com.cooperativa.java.repositories.jpa.CuentaR;
+//import ar.com.cooperativa.java.repositories.jpa.ClienteR;
+//import ar.com.cooperativa.java.repositories.jpa.CuentaR;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -169,10 +169,10 @@ public class Movimiento implements Serializable {
         return "Movimiento{" + "id=" + id + ", idCuenta=" + idCuenta +", tipo=" + tipo + ", monto=" + monto + ", fecha=" + fecha +  '}';
     }
 
-    public void movimientos(){
+/*    public void movimientos(){
         EntityManagerFactory emf=Persistence.createEntityManagerFactory("COOPU");
         EntityManager em=emf.createEntityManager();
-//        ClienteR cli=new ClienteR(em);
+        ClienteR cli=new ClienteR(em);
         CuentaR cue=new CuentaR(em);
         if(this.tipo.toString().equals(Tipos.Aporte.toString())||
                 this.tipo.toString().equals(Tipos.Diferencial.toString())){
@@ -187,6 +187,6 @@ public class Movimiento implements Serializable {
         }
    
     }
-
+*/
     
 }
