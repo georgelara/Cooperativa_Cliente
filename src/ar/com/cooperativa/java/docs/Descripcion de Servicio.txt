@@ -1,0 +1,21 @@
+Servicio de Clientes
+Nombre          port    input               output
+save            8101    Cliente             id
+remove          8102    Cliente             true/false
+getAll          8103    void                List<Cliente>
+update          8104    Cliente             id
+getByLegajo     8105    int legajo          Cliente
+getLikeApellido 8106    String apellido     List<Cliente>
+getLikeCuil     8107    String cuil         List<Cliente>
+
+
+
+Servicio de Cuentas
+
+Nombre          port    input               output
+save            8001    Cuenta              id
+remove          8002    Cuenta              true/false
+getAll          8003                        List<Cuenta>
+save            8001    Cuenta              id
+getLikeApellido 8004    String apellido     List<Cuenta>
+
